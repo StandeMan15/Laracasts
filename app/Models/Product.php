@@ -32,4 +32,9 @@ class Product extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function categoryTitle()
+    {
+        return $this->belongsTo(Category::class, 'slug');
+    }
+
 }

@@ -33,7 +33,7 @@
                                 </g>
                             </svg>
 
-                            Back to Products
+                            Terug naar {{ $product->category->name }} producten
                         </a>
 
                         <div class="space-x-2">
