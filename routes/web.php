@@ -1,26 +1,26 @@
 <?php
 
-use App\Http\Controllers\PostsController;
-use App\Models\Post;
+use App\Http\Controllers\ProductsController;
+use App\Models\Product;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PostsController::class, 'index'])->name('home');
+Route::get('/', [ProductsController::class, 'index'])->name('home');
 
-Route::get('posts/{post:slug}', [PostsController::class, 'show']);
+Route::get('products/{product:slug}', [ProductsController::class, 'show']);
 
-Route::get('categories/{category:slug}', function (Category $category){
-    return view('posts', [
-        'posts' => $category->posts,
+Route::get('/{category:slug}', function (Category $category){
+    return view('products', [
+        'products' => $category->products,
         'currentCategory' => $category,
         'categories' => Category::all()
     ]);
 })->name('category');
 
 Route::get('authors/{author:username}', function (User $author){
-    return view('posts', [
-        'posts' => $author->posts,
+    return view('products', [
+        'products' => $author->products,
         'categories' => Category::all()
     ]);
 });
