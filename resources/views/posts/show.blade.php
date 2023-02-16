@@ -8,15 +8,15 @@
                     <img src="/images/illustration-1.png" alt="" class="rounded-xl">
 
                     <p class="mt-4 block text-gray-400 text-xs">
-                        Published <time>{{ $product->created_at->diffForHumans() }}</time>
+                        Published <time>{{ $post->created_at->diffForHumans() }}</time>
                     </p>
 
                     <div class="flex items-center lg:justify-center text-sm mt-4">
                         <img src="/images/lary-avatar.svg" alt="Lary avatar">
                         <div class="ml-3 text-left">
-                            <a href="/?author={{ $product->author->username }}">
+                            <a href="/?author={{ $post->author->username }}">
                                 <h5 class="font-bold">
-                                    {{ $product->author->name }}
+                                    {{ $post->author->name }}
                                 </h5>
                             </a>
                         </div>
@@ -37,22 +37,30 @@
                                 </g>
                             </svg>
 
-                            Back to Products
+                            Back to Posts
                         </a>
 
                         <div class="space-x-2">
-                            <x-category-button :category="$product->category" />
+                            <x-category-button :category="$post->category" />
                         </div>
                     </div>
 
                     <h1 class="font-bold text-3xl lg:text-4xl mb-10">
-                        {{ $product->title }}
+                        {{ $post->title }}
                     </h1>
 
                     <div class="space-y-4 lg:text-lg leading-loose">
-                        {!! $product->body !!}
+                        {!! $post->body !!}
                     </div>
                 </div>
+
+                <section class="col-span-8 col-start-5 space-y-6">
+                    <x-post-comment />
+                    <x-post-comment />
+                    <x-post-comment />
+                    <x-post-comment />
+                </section>
+
             </article>
         </main>
 

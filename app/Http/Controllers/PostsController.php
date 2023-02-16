@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Product;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class PostsController extends Controller
 {
     public function index()
     {
-        return view('products.index', [
-            'products' => Product::latest()->filter(
+        return view('posts.index', [
+            'posts' => Post::latest()->filter(
                 request(['search', 'category', 'author'])
             )->paginate(6)->withQueryString()
         ]);
     }
 
-    public function show(Product $product)
+    public function show(Post $post)
     {
-        return view('products.show', [
-            'product' => $product
+        return view('posts.show', [
+            'post' => $post
         ]);
     }
 }
